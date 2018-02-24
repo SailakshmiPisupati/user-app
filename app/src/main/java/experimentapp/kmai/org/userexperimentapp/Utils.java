@@ -15,6 +15,15 @@ import java.util.Date;
 public class Utils {
     public static String userid;
     public static String deviceID;
+    public static String password;
+
+    public static String getPassword() {
+        return password;
+    }
+
+    public static void setPassword(String password) {
+        Utils.password = password;
+    }
 
     public String getTime(){
         DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.SSS");

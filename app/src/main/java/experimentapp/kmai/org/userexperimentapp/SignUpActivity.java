@@ -107,9 +107,9 @@ public class SignUpActivity extends AppCompatActivity {
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference mDatabase = database.getReference(encodeUserEmail(email));
 
-                                    mDatabase.child("password: ").setValue(password);
-                                    mDatabase.child("device ID: ").setValue(getDeviceID());
-                                    mDatabase.child("registration date: ").setValue(getTime());
+                                    mDatabase.child("password").setValue(password);
+                                    mDatabase.child("device_id").setValue(getDeviceID());
+                                    mDatabase.child("registration_date").setValue(getTime());
 
                                     //Set the username as the shared preferences.
                                     saveUser(encodeUserEmail(email));
