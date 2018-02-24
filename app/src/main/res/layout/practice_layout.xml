@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/user_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_practice_instruction" />
+
+    <TextView
+        android:id="@+id/pratice_text"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/practice_text_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="157dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter text here.." />
+
+    <TextView
+        android:id="@+id/practice_optional_text"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:text="@string/text_practice_optional" />
+
+    <EditText
+        android:id="@+id/practice_optional_text_editext"
+        android:layout_width="match_parent"
+        android:layout_height="142dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Enter text here.." />
+
+</LinearLayout>
