@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">UserExperimentApp</string>
+    <string name="app_name">User Experiment App</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
+    <string name="prompt_email">Email ID</string>
     <string name="userid"></string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -25,6 +25,7 @@
     <string name="title_activity_login">Sign in</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
     <string name="hint_name">Fullname</string>
     <string name="btn_login">LOGIN</string>
     <string name="btn_link_to_register">Not a member? Get registered in Firebase now!</string>
@@ -39,7 +40,9 @@
     <string name="btn_remove">Remove</string>
     <string name="btn_sign_out">Sign Out</string>
     <string name="lbl_forgot_password">Forgot password?</string>
-    <string name="text_practice_instruction">Enter the following text that is displayed below.</string>
+    <string name="text_practice_instruction">Enter the following text : The quick brown fox jumped over the lazy dog </string>
     <string name="text_practice_optional">You can enter your own text here if you wish to.</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+    <string name="practice_script">The quick brown fox jumped over the lazy dog</string>
+    <string name="survey_button">Take the survey.</string>
 </resources>

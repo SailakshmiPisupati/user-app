@@ -11,6 +11,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ import static experimentapp.kmai.org.userexperimentapp.Utils.getDeviceID;
 public class PracticeActivity extends Activity {
 
     EditText practice_text , practice_optional_text;
-
+    Button survey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +43,8 @@ public class PracticeActivity extends Activity {
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.userid), Context.MODE_PRIVATE);
         final String username = sharedPref.getString(getString(R.string.userid),"");
-        TextView userid_tv = (TextView)findViewById(R.id.user_id);
-        userid_tv.setText(username);
+//        TextView userid_tv = (TextView)findViewById(R.id.user_id);
+//        userid_tv.setText(username);
 
         Log.d("user is ",encodeUserEmail(username));
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -64,11 +65,20 @@ public class PracticeActivity extends Activity {
             }
         });
 
+        survey = (Button) findViewById(R.id.survey_button);
+        survey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PracticeActivity.this, WebViewactivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
     public String getTime(){
-        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss:SSS");
         Date date = new Date();
         return  dateFormat.format(date);
     }

@@ -41,6 +41,7 @@ import java.util.Map;
 
 import static android.view.KeyEvent.keyCodeToString;
 import static experimentapp.kmai.org.userexperimentapp.User.email;
+import static experimentapp.kmai.org.userexperimentapp.Utils.decodeUserEmail;
 import static experimentapp.kmai.org.userexperimentapp.Utils.encodeUserEmail;
 
 public class LoginActivity extends AppCompatActivity {
@@ -69,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         btnReset = (Button) findViewById(R.id.btn_reset_password);
 
 
-        inputEmail.setText(username);
+        inputEmail.setText(decodeUserEmail(username));
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 

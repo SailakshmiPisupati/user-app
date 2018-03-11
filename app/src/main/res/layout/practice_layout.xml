@@ -2,24 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient1"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/user_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+    <!--<TextView-->
+        <!--android:id="@+id/user_id"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="TextView"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="12dp"/>-->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_practice_instruction" />
+        android:text="Practice Page"
+        android:textColor="@color/white"
+        android:textSize="14dp"/>
 
     <TextView
-        android:id="@+id/pratice_text"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:text="TextView" />
+        android:layout_height="wrap_content"
+        android:text="@string/text_practice_instruction"
+        android:textColor="@color/white"
+        android:textSize="12dp"/>
+
+    <!--<TextView-->
+        <!--android:id="@+id/pratice_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="41dp"-->
+        <!--android:text="@string/practice_script"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="12dp"/>-->
 
     <EditText
         android:id="@+id/practice_text_edittext"
@@ -27,13 +41,17 @@
         android:layout_height="157dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter text here.." />
+        android:hint="Enter text here.."
+        android:textColor="@color/white"
+        android:textSize="12dp"/>
 
     <TextView
         android:id="@+id/practice_optional_text"
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:text="@string/text_practice_optional" />
+        android:text="@string/text_practice_optional"
+        android:textColor="@color/white"
+        android:textSize="12dp"/>
 
     <EditText
         android:id="@+id/practice_optional_text_editext"
@@ -41,6 +59,19 @@
         android:layout_height="142dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter text here.." />
+        android:hint="Enter text here.."
+        android:textColor="@color/white"
+        android:textSize="12dp"/>
+
+    <Button
+        android:id="@+id/survey_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/survey_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15dp"/>
 
 </LinearLayout>
