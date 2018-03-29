@@ -98,6 +98,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                 } else {
                                     // Save the username and password to the database
+                                    Utils.setPassword(password);
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                                     DatabaseReference mDatabase = database.getReference(encodeUserEmail(email));
 
@@ -106,7 +107,8 @@ public class SignUpActivity extends AppCompatActivity {
                                     mDatabase.child("registration_date").setValue(getTime());
 
                                     //Set the username as the shared preferences.
-                                    saveUser(encodeUserEmail(email));
+                                    saveUser("email",encodeUserEmail(email));
+                                    saveUser("password",password);
 
                                     startActivity(new Intent(SignUpActivity.this, PracticeActivity.class));
                                     finish();
@@ -119,12 +121,19 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void saveUser(String encodedEmail){
+    private void saveUser(String tag, String encodedEmail){
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.userid), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.clear();
-        editor.putString(getString(R.string.userid),encodedEmail);
+
+        switch(tag){
+            case "email":
+                editor.putString(getString(R.string.userid),encodedEmail);
+            case "password":
+                editor.putString(getString(R.string.password),encodedEmail);
+        }
+
         editor.commit();
         Log.d(TAG,"USER ID after saving is "+sharedPref.getString(getString(R.string.userid),""));
     }

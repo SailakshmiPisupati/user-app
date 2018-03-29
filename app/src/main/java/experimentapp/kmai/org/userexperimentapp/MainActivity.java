@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
             startActivity(registerIntent);
         }else{
             //call the activity to collect data
-            Intent rawTouchDataIntent = new Intent(getApplicationContext(),LoginActivity.class);
+            Intent rawTouchDataIntent = new Intent(getApplicationContext(),PracticeActivity.class);
             startActivity(rawTouchDataIntent);
         }
     }

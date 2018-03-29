@@ -52,6 +52,7 @@
 
                 <EditText
                     android:id="@+id/password"
+                    android:background="@drawable/textinputborder"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
