@@ -110,7 +110,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     saveUser("email",encodeUserEmail(email));
                                     saveUser("password",password);
 
-                                    startActivity(new Intent(SignUpActivity.this, PracticeActivity.class));
+                                    startActivity(new Intent(SignUpActivity.this, ModeActivity.class));
                                     finish();
                                 }
                             }

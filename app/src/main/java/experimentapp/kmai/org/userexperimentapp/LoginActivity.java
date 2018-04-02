@@ -169,7 +169,7 @@ public class LoginActivity extends AppCompatActivity {
                                         }
                                     }
                                 } else {
-                                    Intent intent = new Intent(LoginActivity.this, PracticeActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, SectionSelectorActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }

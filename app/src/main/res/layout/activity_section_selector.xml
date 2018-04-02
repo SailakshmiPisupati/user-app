@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradient1"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:weightSum="100"
+    tools:context="experimentapp.kmai.org.userexperimentapp.SectionSelectorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="50"
+        android:paddingTop="5dp">
+
+        <Button
+            android:id="@+id/button_section1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:text="Section 1"
+            android:textAllCaps="false"
+            />
+        <Button
+            android:id="@+id/button_section2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Section 2"
+            android:background="@color/input_login_hint"
+            android:textAllCaps="false"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="50"
+        android:paddingTop="5dp">
+
+        <Button
+            android:id="@+id/button_section3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/input_login_hint"
+            android:text="Section 3"
+            android:textAllCaps="false"
+             />
+
+        <Button
+            android:id="@+id/button_section4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:text="Section 4"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+
+</LinearLayout>

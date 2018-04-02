@@ -41,7 +41,7 @@
     <string name="btn_remove">Remove</string>
     <string name="btn_sign_out">Sign Out</string>
     <string name="lbl_forgot_password">Forgot password?</string>
-    <string name="text_practice_instruction">Enter the following text : The quick brown fox jumped over the lazy dog </string>
+    <string name="text_practice_instruction">Press Volume Down to start session. </string>
     <string name="text_practice_optional">You can enter your own text here if you wish to.</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="practice_script">The quick brown fox jumped over the lazy dog</string>

@@ -38,14 +38,14 @@
 
     <EditText
         android:id="@+id/practice_text_edittext"
-        android:background="@drawable/textinputborder"
         android:layout_width="match_parent"
-        android:layout_height="157dp"
+        android:layout_height="474dp"
+        android:background="@drawable/textinputborder"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Enter text here.."
+        android:inputType="textPersonName"
         android:textColor="@color/white"
-        android:textSize="20dp"/>
+        android:textSize="20dp" />
 
     <!--<TextView-->
         <!--android:id="@+id/practice_optional_text"-->

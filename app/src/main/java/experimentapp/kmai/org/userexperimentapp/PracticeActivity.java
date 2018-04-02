@@ -39,11 +39,12 @@ import static experimentapp.kmai.org.userexperimentapp.Utils.getDeviceID;
 
 public class PracticeActivity extends Activity {
 
-    EditText practice_text, practice_optional_text;
+    EditText practice_text;
     TextView text_practice_instruction;
     Button survey, next;
     PhrasesDictionary dictionary;
     int phraseCount = 0, phraseTotal;
+    int sectionStart, sectionEnd;
     DatabaseReference mDatabase;
     TextToSpeech textToSpeech;
 
@@ -51,6 +52,25 @@ public class PracticeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.practice_layout);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle.containsKey("section")){
+            String section = (String) bundle.get("section");
+            Log.d("Practice Activity",section);
+            switch (section){
+                case "section1":
+                    sectionStart = ModeSectionValues.practiceSection1_start; sectionEnd = ModeSectionValues.practiceSection1_end;
+                    break;
+                case "section2":
+                    sectionStart = ModeSectionValues.practiceSection2_start; sectionEnd = ModeSectionValues.practiceSection2_end;
+                    break;
+                case "section3":
+                    sectionStart = ModeSectionValues.practiceSection3_start; sectionEnd = ModeSectionValues.practiceSection3_end;
+                    break;
+                case "section4":
+                    sectionStart = ModeSectionValues.practiceSection4_start; sectionEnd = ModeSectionValues.practiceSection4_end;
+            }
+        }
+        Log.d("Practice Activity",sectionStart+" "+sectionEnd);
         AssetManager assetManager = getAssets();
         try {
             InputStream inputStream = assetManager.open("phrases.txt");
@@ -70,7 +90,6 @@ public class PracticeActivity extends Activity {
             }
         });
         practice_text = findViewById(R.id.practice_text_edittext);
-//        practice_optional_text = (EditText) findViewById(R.id.practice_optional_text_editext);
 
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.userid), Context.MODE_PRIVATE);
         final String username = sharedPref.getString(getString(R.string.userid), "");
@@ -144,21 +163,16 @@ public class PracticeActivity extends Activity {
         return dateFormat.format(date);
     }
 
-    public void onBackPressed() {
-        Intent a = new Intent(Intent.ACTION_MAIN);
-        a.addCategory(Intent.CATEGORY_HOME);
-        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
-
-    }
-
     public String getPhrase(){
-        if(phraseCount < phraseTotal){
-            return PhrasesDictionary.getPhrase(phraseCount++);
-        }
-        else if(phraseCount == phraseTotal) {
+        if((phraseCount+sectionStart) == (sectionEnd+1)) {
             SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.password), Context.MODE_PRIVATE);
-            return sharedPref.getString(getString(R.string.password), "");
+            String password =  sharedPref.getString(getString(R.string.password), "");
+            if(password == null || password.length()==0)
+                return PhrasesDictionary.getPhrase(phraseTotal-1);
+            else
+                return password;
+        }else if(phraseCount < phraseTotal){
+            return PhrasesDictionary.getPhrase(sectionStart+phraseCount++);
         }else{
             return PhrasesDictionary.getPhrase(phraseTotal-1);
         }
@@ -166,9 +180,11 @@ public class PracticeActivity extends Activity {
 
     public void getNextText(){
         practice_text.setText("");
-        if (phraseCount >= phraseTotal - 1) {
+
+        if ((phraseCount+sectionStart) >= sectionEnd) {
             next.setVisibility(View.INVISIBLE);
         }
+
         String phrase = getPhrase();
         text_practice_instruction.setText(phrase);
         String toSpeak = "Getting Next Phrase. Press Volume Up to hear the next phrase.";
@@ -178,7 +194,10 @@ public class PracticeActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            return true;
+        } else if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)) {
             //get Next phrase
             getNextText();
 
@@ -187,7 +206,6 @@ public class PracticeActivity extends Activity {
             String toSpeak = text_practice_instruction.getText().toString();
             textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
         } else {
-            //log the key
             char unicodeChar = (char) event.getUnicodeChar();
             Log.d("Key Pressed", String.valueOf(keyCodeToString(keyCode) + " key is " + Character.toString(unicodeChar) + " event time " + getTime() + " " + event.getEventTime()));
             mDatabase.child("Keyboard Session").child("Key Pressed ").child("Time :" + getTime().toString() + " Letter: ").setValue(Character.toString(unicodeChar));
