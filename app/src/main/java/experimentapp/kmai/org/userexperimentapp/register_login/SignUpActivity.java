@@ -1,10 +1,11 @@
-package experimentapp.kmai.org.userexperimentapp;
+package experimentapp.kmai.org.userexperimentapp.register_login;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -21,11 +22,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -33,7 +31,13 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static experimentapp.kmai.org.userexperimentapp.Utils.encodeUserEmail;
+import experimentapp.kmai.org.userexperimentapp.R;
+import experimentapp.kmai.org.userexperimentapp.practice_session.CheckTutorialCompleted;
+import experimentapp.kmai.org.userexperimentapp.practice_session.InstructionPageActivity;
+import experimentapp.kmai.org.userexperimentapp.utility.Utils;
+import experimentapp.kmai.org.userexperimentapp.setting_selector.SectionSelectorActivity;
+
+import static experimentapp.kmai.org.userexperimentapp.utility.Utils.encodeUserEmail;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -42,6 +46,8 @@ public class SignUpActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseAuth auth;
     private final String TAG = "SignUpActivity";
+    public static final String sharedPreferenceName ="USEREXPERIMENTAPP";
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +62,7 @@ public class SignUpActivity extends AppCompatActivity {
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         inputConfirmPassword1 = (EditText) findViewById(R.id.confirm_password1);
-        inputConfirmPassword2 = (EditText) findViewById(R.id.confirm_password2);
+//        inputConfirmPassword2 = (EditText) findViewById(R.id.confirm_password2);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
 
@@ -76,9 +82,11 @@ public class SignUpActivity extends AppCompatActivity {
                 final String email = inputEmail.getText().toString().trim();
                 final String password = inputPassword.getText().toString().trim();
                 String confirm_password1 = inputConfirmPassword1.getText().toString().trim();
-                String confirm_password2 = inputConfirmPassword2.getText().toString().trim();
+//                String confirm_password2 = inputConfirmPassword2.getText().toString().trim();
 
-                validate(email,password,confirm_password1,confirm_password2);
+//                validate(email,password,confirm_password1,confirm_password2);
+
+                validate(email,password,confirm_password1);
 
                 progressBar.setVisibility(View.VISIBLE);
                 //create user
@@ -107,10 +115,12 @@ public class SignUpActivity extends AppCompatActivity {
                                     mDatabase.child("registration_date").setValue(getTime());
 
                                     //Set the username as the shared preferences.
-                                    saveUser("email",encodeUserEmail(email));
-                                    saveUser("password",password);
+                                    saveUser(email);
+                                    savePassword(password);
 
-                                    startActivity(new Intent(SignUpActivity.this, ModeActivity.class));
+                                    Intent intent = new Intent(SignUpActivity.this, CheckTutorialCompleted.class);
+                                    intent.putExtra("message_to_display","tutorial_reminder");
+                                    startActivity(intent);
                                     finish();
                                 }
                             }
@@ -121,21 +131,21 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void saveUser(String tag, String encodedEmail){
+    private void saveUser(String email){
+        String encodedEmail = encodeUserEmail(email);
+        sharedpreferences = getSharedPreferences(sharedPreferenceName,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("email_id",encodedEmail);
+        editor.apply();
+//        editor.commit();                      - using apply since apply() will add it asynchronously. commit() is synchronous.
 
-        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.userid), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.clear();
+    }
 
-        switch(tag){
-            case "email":
-                editor.putString(getString(R.string.userid),encodedEmail);
-            case "password":
-                editor.putString(getString(R.string.password),encodedEmail);
-        }
-
-        editor.commit();
-        Log.d(TAG,"USER ID after saving is "+sharedPref.getString(getString(R.string.userid),""));
+    private void savePassword(String password){
+        sharedpreferences = getSharedPreferences(sharedPreferenceName,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("password",password);
+        editor.apply();
     }
 
 
@@ -175,7 +185,37 @@ public class SignUpActivity extends AppCompatActivity {
         Pattern pattern = Pattern.compile(regex_pattern);
         Matcher m = pattern.matcher(confirm_password1);
 
-        if(confirm_password2.equals(password) && confirm_password2.equals(password)){
+        if(confirm_password2.equals(password) && confirm_password1.equals(password)){
+            return;
+        }
+    }
+
+    protected void validate(String email,String password,String confirm_password1){
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(confirm_password1)) {
+            Toast.makeText(getApplicationContext(), "Enter confirm password 1!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (password.length() < 6) {
+            Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Log.d("register form","inside validation");
+        String regex_pattern = "[a-z]||[A-Z]";
+        Pattern pattern = Pattern.compile(regex_pattern);
+        Matcher m = pattern.matcher(confirm_password1);
+
+        if(confirm_password1.equals(password)){
             return;
         }
     }
@@ -201,5 +241,11 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        finish();
     }
 }

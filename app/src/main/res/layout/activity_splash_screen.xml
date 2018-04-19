@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient1"
+    tools:context="experimentapp.kmai.org.userexperimentapp.setting_selector.SplashScreenActivity">
+
+    <TextView
+        android:id="@+id/splash_screen"
+        android:layout_width="match_parent"
+        android:layout_height="485dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="TextView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/confirm_session_instruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Continue"
+            android:textColor="@color/black" />
+        <Button
+            android:id="@+id/splash_screen_help_menu_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Help"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+</LinearLayout>

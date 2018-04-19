@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient1"
+    tools:context="experimentapp.kmai.org.userexperimentapp.setting_selector.SettingOptionLayoutActivity">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/setting_instructions"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="@string/setting_instruction"
+        />
+    <TextView
+        android:id="@+id/setting_legend_1"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="@string/setting_legend_1"
+        />
+    <TextView
+        android:id="@+id/setting_legend_2"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="@string/setting_legend_2"
+        />
+    <TextView
+        android:id="@+id/setting_legend_3"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="@string/setting_legend_3"
+        />
+    <TextView
+        android:id="@+id/setting_legend_4"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="@string/setting_legend_4"
+        />
+    <TextView
+        android:id="@+id/keyboard_legend"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="K1 : ThumbStroke, K2 : QWERTY"
+        />
+
+    <RadioGroup
+        android:id="@+id/setting_selector_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="@string/setting_1" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="@string/setting_2" />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="@string/setting_3"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:text="@string/setting_4" />
+    </RadioGroup>
+    </LinearLayout>
+</ScrollView>
+    <Button
+        android:id="@+id/setting_next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/next_button"
+       />
+
+
+</LinearLayout>

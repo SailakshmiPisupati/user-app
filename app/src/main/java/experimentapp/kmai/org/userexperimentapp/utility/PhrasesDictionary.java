@@ -1,4 +1,4 @@
-package experimentapp.kmai.org.userexperimentapp;
+package experimentapp.kmai.org.userexperimentapp.utility;
 
 import android.util.Log;
 

@@ -19,16 +19,16 @@
         android:padding="@dimen/activity_horizontal_margin">
 
 
-        <ImageView
-            android:layout_width="@dimen/logo_w_h"
-            android:layout_height="@dimen/logo_w_h"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="30dp"
-            android:src="@mipmap/ic_launcher" android:contentDescription="TODO" />
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/logo_w_h"-->
+            <!--android:layout_height="@dimen/logo_w_h"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginBottom="30dp"-->
+            <!--android:src="@mipmap/ic_launcher" android:contentDescription="TODO" />-->
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"></android.support.design.widget.TextInputLayout>
 
             <EditText
                 android:id="@+id/email"
@@ -38,10 +38,17 @@
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
+                android:textSize="20dp"
                 android:singleLine="true"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/black" />
 
-        </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Password needs to be minimum 8 characters all lower case characters." />
+
+
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -57,8 +64,9 @@
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
                 android:maxLines="1"
+                android:textSize="20dp"
                 android:singleLine="true"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/black" />
 
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
@@ -75,26 +83,27 @@
                 android:imeOptions="actionUnspecified"
                 android:inputType="textPassword"
                 android:maxLines="1"
+                android:textSize="20dp"
                 android:singleLine="true"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/black" />
 
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/confirm_password2"
-                android:background="@drawable/textinputborder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusableInTouchMode="true"
-                android:hint="@string/hint_confirm_password"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@android:color/white" />
+            <!--<EditText-->
+                <!--android:id="@+id/confirm_password2"-->
+                <!--android:background="@drawable/textinputborder"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:focusableInTouchMode="true"-->
+                <!--android:hint="@string/hint_confirm_password"-->
+                <!--android:imeOptions="actionUnspecified"-->
+                <!--android:inputType="textPassword"-->
+                <!--android:maxLines="1"-->
+                <!--android:singleLine="true"-->
+                <!--android:textColor="@color/black" />-->
 
         </android.support.design.widget.TextInputLayout>
 
@@ -104,9 +113,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="@color/colorPrimaryDark"
             android:text="@string/action_sign_in_short"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <!--<Button-->
@@ -116,7 +124,7 @@
             <!--android:layout_marginTop="16dp"-->
             <!--android:background="@color/colorPrimaryDark"-->
             <!--android:text="@string/action_sign_in_short"-->
-            <!--android:textColor="@android:color/white"-->
+            <!--android:textColor="@color/black"-->
             <!--android:textStyle="bold" />-->
 
         <Button
@@ -125,9 +133,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/btn_link_to_login"
-            android:background="@color/colorPrimaryDark"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="12sp" />
 
         <!--<Button-->

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient1"
+    tools:context="experimentapp.kmai.org.userexperimentapp.setting_selector.PhraseSelectorActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/phrase_setting_instructions"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:textColor="@color/black"
+                android:text="@string/phrase_setting_instructions"
+
+                />
+            <TextView
+                android:id="@+id/phrase_setting_legend_1"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:text="@string/phrase_setting_legend_1"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/phrase_setting_legend_2"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:text="@string/phrase_setting_legend_2"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/phrase_setting_legend_3"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:text="@string/phrase_setting_legend_3"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/phrase_setting_legend_4"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:textColor="@color/black"
+                android:text="@string/phrase_setting_legend_4"
+                />
+
+            <RadioGroup
+                android:id="@+id/setting_selector_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textColor="@color/black"
+                    android:text="@string/phrase_setting_1" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textColor="@color/black"
+                    android:text="@string/phrase_setting_2" />
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textColor="@color/black"
+                    android:text="@string/phrase_setting_3"/>
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textColor="@color/black"
+                    android:text="@string/phrase_setting_4" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/setting_next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/next_button"
+        />
+
+
+</LinearLayout>

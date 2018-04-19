@@ -1,9 +1,11 @@
-package experimentapp.kmai.org.userexperimentapp;
+package experimentapp.kmai.org.userexperimentapp.practice_session;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.webkit.WebView;
+
+import experimentapp.kmai.org.userexperimentapp.R;
 
 /**
  * Created by saila on 3/9/18.

@@ -1,10 +1,13 @@
-package experimentapp.kmai.org.userexperimentapp;
+package experimentapp.kmai.org.userexperimentapp.setting_selector;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import experimentapp.kmai.org.userexperimentapp.practice_session.PracticeActivity;
+import experimentapp.kmai.org.userexperimentapp.R;
 
 public class SectionSelectorActivity extends AppCompatActivity implements  View.OnClickListener {
     Button section1,section2,section3,section4;
@@ -46,6 +49,12 @@ public class SectionSelectorActivity extends AppCompatActivity implements  View.
         Intent intent = new Intent(SectionSelectorActivity.this,PracticeActivity.class);
         intent.putExtras(bundle);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        finish();
     }
 
 }

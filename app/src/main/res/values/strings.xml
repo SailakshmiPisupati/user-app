@@ -15,7 +15,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."</string>
     <string name="email">Email</string>
-    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="minimum_password">Password too short, enter minimum 8 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
     <string name="change_email">Change Email</string>
     <string name="change_password">Change Password</string>
@@ -41,10 +41,60 @@
     <string name="btn_remove">Remove</string>
     <string name="btn_sign_out">Sign Out</string>
     <string name="lbl_forgot_password">Forgot password?</string>
-    <string name="text_practice_instruction">Press Volume Down to start session. </string>
+    <string name="text_practice_instruction">This is the practice page. Press Volume Down to start session. </string>
     <string name="text_practice_optional">You can enter your own text here if you wish to.</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="practice_script">The quick brown fox jumped over the lazy dog</string>
     <string name="survey_button">Take the survey.</string>
     <string name="next_button">Next</string>
+
+
+    <!--String for the Setting selection layout-->
+    <string name="setting_instruction">Select a setting order for this phone.</string>
+    <string name="setting_legend_1">| 1 : One-Hand + K1 | </string>
+    <string name="setting_legend_2">| 2 : One-Hand + K2 | </string>
+    <string name="setting_legend_3">| 3 : Two-hand + K1 |</string>
+    <string name="setting_legend_4">| 4 : Two-Hand + K2 | </string>
+
+    <string name="setting_1">1-2-3-4</string>
+    <string name="setting_2">4-2-1-3</string>
+    <string name="setting_3">2-1-3-4</string>
+    <string name="setting_4">3-2-1-4</string>
+    <string name="setting_5">1-2-3-4</string>
+    <string name="current_session_setting"></string>
+    <string name="current_session"></string>
+
+
+    <!--String for the Phrase selection layout-->
+    <string name="phrase_setting_instructions">Select a phrase setting for this session.</string>
+    <string name="phrase_setting_legend_1"> P1 : Phrases 0 - 9</string>
+    <string name="phrase_setting_legend_2"> P2 : Phrases 10 - 19</string>
+    <string name="phrase_setting_legend_3"> P3 : Phrases 20 - 29</string>
+    <string name="phrase_setting_legend_4"> P4 : Phrases 30 - 39</string>
+    <string name="phrase_setting_1">P1-P2-P3-P4</string>
+    <string name="phrase_setting_2">P4-P2-P1-P3</string>
+    <string name="phrase_setting_3">P2-P1-P3-P4</string>
+    <string name="phrase_setting_4">P3-P2-P1-P4</string>
+    <string name="phrase_setting_5">P1-P2-P3-P4</string>
+    <string name="practice_page_speak">This is the Practice Page. Press volume down to start session.</string>
+    <string name="splashscreen_volumne_down_instruction">Press continue to login session. In the next page you are going to be asked to login and verify the password 2 times.</string>
+
+
+
+    <!--String for the Phrase selection layout-->
+    <string name="splash_screen_instruction_1"> For the next 10 phrases, please use only one hand, switch keyboard to ThumbStroke and turn accessibility mode off. </string>
+    <string name="splash_screen_instruction_2"> For the next 10 phrases, please use only one hand, switch keyboard to QWERTY and turn accessibility mode on.</string>
+    <string name="splash_screen_instruction_3"> For the next 10 phrases, please use two hands , switch keyboard to ThumbStroke and turn accessibility mode off.</string>
+    <string name="splash_screen_instruction_4"> For the next 10 phrases, please use two hands, switch keyboard to QWERTY and turn accessibility mode on.</string>
+
+    
+    <!--Instruction Page messages-->
+    <string name="tutorial_completed"></string>
+    <string name="welcome_message">Welcome to the KMAI Mobile App.</string>
+    <string name="pre_exp_survey_message_1">You can only proceed with registration after completing the pre-experiment survey.</string>
+    <string name="post_exp_survey_message_1">Now it\'s time to complete the post-experiment survey. Please select "complete" at the bottom of the screen and receive additional instructions for follow-ups</string>
+    <string name="tutorial_reminder">Now, you are given a tutorial on how to use the mobile app to enter text. You will learn how to enter the text using the two different keyboards with one hand and two hands seperately. You will also learn how to switch between the two keyboards and to switch the accessibility mode on/off. After you are done with the tutorial, please select "Continue" at the bottom of the screen.</string>
+    <string name="first_time_main_page_message">It\'s time to practice with the mobile app. The practice consists of 4 mini-sessions. In each session you will be asked to login and enter 5 or more text phrases using one of the keyboards with one or two hands.</string>
+    <string name="secone_time_main_page_message">This session consists of 4 sessions. In each session, you will be asked to login and enter 10 or more text phrases using one of the keyboards with one or two hands.</string>
+    <string name="help_instructons">A short explanation of the experiment app. To change to ThumbStroke : Click on the above EditBox. At the bottom right or the notification bar, you will get an option to Select Keyboard. Select the option and select the StrokeIME keyboard. We recommend to switch accessibility mode off when you are using the ThumbStroke Keyboard for better use.   To change to QWERTY - Click on the above EditBox. At the bottom right or the notification bar, you will get an option to Select Keyboard. Select the option and select the StrokeIME keyboard.  . To enable accessibility mode press the lock button till you hear a vibration and then double tap on the screen using two fingers till you hear a audio message to enable the accessibility mode.</string>
 </resources>

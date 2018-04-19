@@ -15,21 +15,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
-
-        <activity android:name=".SignUpActivity"/>
-        <activity android:name=".PracticeActivity"/>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".ModeActivity">
+        <activity android:name=".register_login.MainActivity"
+            android:noHistory="true"/>
+        <activity android:name=".register_login.SignUpActivity"
+            android:noHistory="true"/>
+        <activity android:name=".practice_session.PracticeActivity"
+           />
+        <activity android:name=".register_login.LoginActivity"
+            android:noHistory="true"/>
+        <activity android:name=".register_login.ModeActivity"
+            android:noHistory="true"/>
+        <activity android:name=".practice_session.WebViewactivity"
+            android:noHistory="true"/>
+        <activity android:name=".setting_selector.SectionSelectorActivity"
+            android:noHistory="true"/>
+        <activity android:name=".setting_selector.SettingOptionLayoutActivity"
+            android:noHistory="true"/>
+        <activity android:name=".setting_selector.CheckSectionSet"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".WebViewactivity"/>
-        <activity android:name=".SectionSelectorActivity"/>
+        <activity android:name=".setting_selector.PhraseSelectorActivity"
+            android:noHistory="true"/>
+        <activity android:name=".setting_selector.SplashScreenActivity"
+            android:noHistory="true"/>
+        <activity android:name=".practice_session.InstructionPageActivity"
+            android:noHistory="true"/>
+        <activity android:name=".practice_session.MainHomeActivity"
+            android:noHistory="true"></activity>
+        <activity android:name=".practice_session.CheckTutorialCompleted"
+            android:noHistory="true"></activity>
     </application>
 
 </manifest>

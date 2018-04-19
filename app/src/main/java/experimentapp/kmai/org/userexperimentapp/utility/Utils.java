@@ -1,8 +1,4 @@
-package experimentapp.kmai.org.userexperimentapp;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
+package experimentapp.kmai.org.userexperimentapp.utility;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,6 +12,7 @@ public class Utils {
     public static String userid;
     public static String deviceID;
     public static String password;
+    public final static int minimumpasswordLength = 8;
 
     public static String getPassword() {
         return password;
@@ -25,17 +22,17 @@ public class Utils {
         Utils.password = password;
     }
 
-    public String getTime(){
-        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.SSS");
+    static public String getTime(){
+        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss:SSS");
         Date date = new Date();
         return  dateFormat.format(date);
     }
 
-    static String encodeUserEmail(String userEmail) {
+    public static String encodeUserEmail(String userEmail) {
         return userEmail.replace(".", ",");
     }
 
-    static String decodeUserEmail(String userEmail) {
+    public static String decodeUserEmail(String userEmail) {
         return userEmail.replace(",", ".");
     }
 
